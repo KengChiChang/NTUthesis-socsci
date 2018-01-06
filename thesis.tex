@@ -1,0 +1,101 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass{style/ntuthesis}
+\usepackage{style/kcchang-ntuthesis}
+
+% Using the tex-text mapping for ligatures etc.
+\defaultfontfeatures{Ligatures=TeX, Mapping = tex-text}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setting fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mac system fonts
+\setmainfont{Times New Roman}
+\setsansfont[Scale = MatchLowercase]{Arial}
+\setmonofont[Scale = MatchLowercase]{Monaco}
+\setCJKmainfont[BoldFont = Songti TC Bold]{Songti TC Regular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Windows system fonts
+%\setmainfont{Times New Roman}
+%\setsansfont[Scale = MatchLowercase]{Arial}
+%\setmonofont[Scale = MatchLowercase]{Lucida Console}
+%\setCJKmainfont{標楷體}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linux system fonts
+%\setmainfont{DejaVu Serif}
+%\setsansfont[Scale = MatchLowercase]{DejaVu Sans}
+%\setmonofont[Scale = MatchLowercase]{DejaVu Sans Mono}
+%\setCJKmainfont{WenQuanYi Zen Hei}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mercury Text, Latin Modern Sans, and Operator Mono Book (Non-system fonts
+%\setmainfont{Mercury Text G1}
+%\newfontfamily\rmnumeric{Mercury Numeric}
+%\setsansfont[Scale = MatchLowercase]{Latin Modern Sans}
+%\setmonofont[Scale = MatchLowercase]{Operator Mono Book}
+%\setCJKmainfont[BoldFont = Songti TC Bold]{Songti TC Regular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other Chinese fonts
+%\setCJKmainfont{cwTeX Q Ming}
+%\setCJKmainfont{cwTeX Q Kai}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifdefined\withwatermark
+\CenterWallPaper{0.174}{watermark.pdf}
+\setlength{\wpXoffset}{6.1725cm}
+\setlength{\wpYoffset}{10.5225cm}
+\fi
+
+% Your information goes here
+\input{files/ntuvars}
+\begin{document}
+
+\frontmatter
+
+\makecover
+
+\makecertification
+
+\input{files/acknowledgements}
+\input{files/abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+\fontsize{12}{13}\selectfont
+% Your thesis goes here
+%\input{files/test}
+\input{files/1-intro}
+\input{files/2-lit}
+\input{files/3-model&method}
+\input{files/4-data&result}
+\input{files/5-vali}
+\input{files/6-appli&disc}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+% Bibliography
+\bibliographystyle{bib/thesis_style}
+% Your bibliography goes here
+\fontsize{12}{11}\selectfont
+\Urlmuskip=0mu plus 1mu\relax % make bibliography tighter
+\bibliography{bib/thesis}
+
+\appendix
+
+\input{files/a-further-result}
+\input{files/a-further-vali}
+
+\backmatter
+
+% Todo List
+% Comment the below two lines out if you don't want to list them in Contents
+\addcontentsline{toc}{chapter}{Todo List}
+\listoftodos[Todo List]
+
+\end{document}
+

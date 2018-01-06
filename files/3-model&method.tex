@@ -1,0 +1,14 @@
+\chapter{Model and Method}
+\label{c:model&method}
+
+\section{Equation Example}
+\label{s:equation}
+
+Here is Equation~\ref{eq:mle}.
+\begin{align} \label{eq:mle}
+\begin{split}
+\mathcal{L}\left(\vec{\theta}, \vec{\phi}, \vec{\alpha}, \vec{\beta}, \gamma \,|\, \boldsymbol{\mathrm{y}}\right)&=\prod_{i\in\mathrm{user}}\prod_{j\in\mathrm{page}}\mathrm{logit}^{-1}\left(\pi_{ij}\right)^{y_{ij}}\left(1-\mathrm{logit}^{-1}\left(\pi_{ij}\right)\right)^{1-y_{ij}},\\
+\left\{\hat{\vec{\theta}},\hat{\vec{\phi}}\right\}&=\argmax_{\vec{\theta}, \vec{\phi}}\,\mathcal{L}\left(\vec{\theta}, \vec{\phi}, \vec{\alpha}, \vec{\beta}, \gamma \,|\, \boldsymbol{\mathrm{y}}\right),
+\end{split}
+\end{align}
+where $\pi_{ij}=\alpha_i+\beta_j-\gamma\left\lVert\theta_i-\phi_j\right\rVert^2$. 

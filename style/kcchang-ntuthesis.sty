@@ -1,0 +1,105 @@
+%!TEX root = "../thesis.tex"
+\usepackage{graphicx}
+    \graphicspath{{figures/}}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{color}
+    \definecolor{MyBrown}{rgb}{0.3,0,0}
+    \definecolor{MyBlue}{rgb}{.2,.2,.8}  
+    \definecolor{MyRed}{rgb}{0.4,0,0.1}
+    \definecolor{MyGreen}{rgb}{0,0.4,0}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true}
+    \hypersetup{%bookmarks = true,
+                bookmarksnumbered = true,
+                bookmarksopen = true, 
+                bookmarksopenlevel = 2, 
+                pdfpagemode = UseOutlines,
+                colorlinks = true,
+                linkcolor = MyRed,
+                citecolor = MyBlue,
+                filecolor = MyBrown,
+                urlcolor = MyGreen}
+\usepackage[colorinlistoftodos,
+            prependcaption,
+            textsize = small,
+            linecolor = yellow!80,
+            backgroundcolor = yellow!50,
+            textwidth = 2.5cm]
+            {todonotes}
+
+% epigraph
+\usepackage{epigraph}
+\usepackage{setspace}
+\setlength\epigraphwidth{0.9\textwidth}
+\setlength\epigraphrule{0pt}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\@epitext{#1}}{}{}
+\makeatother
+
+% math
+\DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{array}
+\renewcommand{\vec}[1]{%
+  \if#1\relax\bm{#1}\else\mathbf{#1}\fi
+}
+
+% tables
+\usepackage[para]{threeparttable}
+\usepackage{booktabs}
+%\usepackage{dcolumn}
+%\newcolumntype{.}[1]{D{.}{.}{#1}}
+%\newcolumntype{,}[1]{D{,}{,}{#1}}
+\usepackage{siunitx}
+\sisetup{%
+  mode = math,
+  detect-all,  
+  output-decimal-marker = {.},
+  group-separator = {,}
+}
+
+% firues
+\usepackage[captionskip=2pt]{floatrow}
+%\usepackage{float}
+%\usepackage{rotating}
+%\usepackage{pdflscape}
+
+% numbering
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% citation
+\usepackage{natbib}
+\setcitestyle{aysep={}} 
+\setlength{\bibsep}{-.1pt} % Reduce space between bibliographies
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } % AER style nobreak
+\renewcommand\bibname{References}
+
+% font
+%\usepackage{fourier}
+\usepackage[osf]{mathpazo}
+\usepackage[no-math]{fontspec}
+\usepackage{xltxtra, xunicode}
+\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+%\usepackage{times}
+%\usepackage{mathptmx}
+%\usepackage[minionint, lf, mathtabular]{MinionPro}
+\usepackage{xeCJK}
+\usepackage{bm}
+
+% chapter & section titles
+% \usepackage{titlesec}
+% \titleformat{\chapter}[display]
+%   {\huge\rmdisplay}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% \titleformat*{\section}{\Large\rmdisplay}
+% \titleformat*{\subsection}{\large\rmdisplay}
+
+% Remove spacing in list of figures and list of tables between chapters
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+\addtocontents{lot}{\protect\noaddvspace}
