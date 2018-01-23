@@ -9,5 +9,7 @@
 請參考 [wiki](https://github.com/kengchichang/ntuthesis-socsci/wiki) 的說明。
 
 ## Changelog
+- v0.2
+    -   Place table caption at top
 -   v0.1
     -   The first release
