@@ -11,16 +11,16 @@
 % Setting fonts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mac system fonts
-\setmainfont{Times New Roman}
-\setsansfont[Scale = MatchLowercase]{Arial}
-\setmonofont[Scale = MatchLowercase]{Monaco}
-\setCJKmainfont[BoldFont = Songti TC Bold]{Songti TC Regular}
+%\setmainfont{Times New Roman}
+%\setsansfont[Scale = MatchLowercase]{Arial}
+%\setmonofont[Scale = MatchLowercase]{Monaco}
+%\setCJKmainfont[BoldFont = Songti TC Bold]{Songti TC Regular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Windows system fonts
-% \setmainfont{Times New Roman}
-% \setsansfont[Scale = MatchLowercase]{Arial}
-% \setmonofont[Scale = MatchLowercase]{Lucida Console}
-% \setCJKmainfont{標楷體}
+ \setmainfont{Times New Roman}
+ \setsansfont[Scale = MatchLowercase]{Arial}
+ \setmonofont[Scale = MatchLowercase]{Lucida Console}
+ \setCJKmainfont{標楷體}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Linux system fonts
 %\setmainfont{DejaVu Serif}
@@ -46,6 +46,31 @@
 \setlength{\wpYoffset}{10.5225cm}
 \fi
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%中文版新增部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}  %% 更改章節圖表的中文
+\usepackage{titletoc}  %% 更改章節圖表的中文
+\usepackage{indentfirst}  %% 英文第一段沒indent，此package使第一段有indent
+
+%將目錄標題中文化使用下列指令
+\renewcommand\contentsname{目錄}
+\renewcommand\listfigurename{圖目錄}
+\renewcommand\listtablename{表目錄}
+%要寫成表1.1 圖1.1的話需加入下列指令
+\newcommand{\loflabel}{圖}
+\newcommand{\lotlabel}{表}
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{圖}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%中文版新增部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
 % Your information goes here
 \input{files/ntuvars}
 \begin{document}
@@ -55,12 +80,21 @@
 \makecover
 
 \makecertification
+%\includepdf[pages={1}]{.pdf}
+% 中文版新增部分 use scanned certification 
+\setlength{\parindent}{2em}
+% 中文版新增部分，設置第一段的縮排長度
+
 
 \input{files/acknowledgements}
 \input{files/abstract}
 
 \tableofcontents
+\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
+% 中文版新增部分，圖1圖2
 \listoffigures
+\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+% 中文版新增部分，表1表2
 \listoftables
 
 \mainmatter
@@ -77,7 +111,10 @@
 
 \newpage
 \phantomsection
-\addcontentsline{toc}{chapter}{\bibname}
+%\addcontentsline{toc}{chapter}{\bibname}
+\addcontentsline{toc}{chapter}{參考文獻} % 中文版新增部分，目錄有參考文獻四字
+\renewcommand\bibname{參考文獻} % 中文版新增部分，正文中標題名為參考文獻
+
 % Bibliography
 \bibliographystyle{bib/thesis_style}
 % Your bibliography goes here
@@ -86,6 +123,9 @@
 \bibliography{bib/thesis}
 
 \appendix
+\addcontentsline{toc}{chapter}{附錄} % 中文版新增部分，目錄有附錄二字
+\renewcommand\appendixname{附~錄} % 中文版新增部分，正文中標題名有附錄
+
 
 \input{files/a-further-result}
 \input{files/a-further-vali}
